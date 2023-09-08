@@ -4,18 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using AWorksDataModels;
-using AWorksAPIDemo.ORM;
-using AWorksWeb.Controllers;
+namespace AWorksWeb.Controllers;
 
-namespace AWorksAPI.Controllers
+[ApiController]
+public class CountryRegionController : GenericApiController<CountryRegion, string>
 {
-
-    [ApiController]
-    public class CountryRegionController : GenericApiController<CountryRegion, string>
-    {
-        public CountryRegionController(AdventureWorksContext context) : base(context)
-        { }
-      
-    }
+    public CountryRegionController(AdventureWorksContext context) : base(context)
+    { }
 }

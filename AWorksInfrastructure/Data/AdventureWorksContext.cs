@@ -29,7 +29,7 @@ public class AdventureWorksContext : DbContext
         modelBuilder.Entity<Address>().ToTable("Address", schema: "Person")
             .HasKey(k => k.AddressID);
 
-        modelBuilder.Entity<Address>().ToTable("Address", schema: "Person")
+        modelBuilder.Entity<Address>().ToTable("Address", schema: "Person")            
             .Property(b => b.AddressID)
             .ValueGeneratedOnAdd();
         modelBuilder.Entity<Address>().Ignore(c => c.IsComplexType);
