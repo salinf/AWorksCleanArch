@@ -14,4 +14,8 @@
     <ProjectReference Include="..\AworksCore\AWorksDomain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Results\" />
+  </ItemGroup>
+
 </Project>

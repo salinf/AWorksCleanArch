@@ -46,6 +46,23 @@ public class AdventureWorksContext : DbContext
            .HasKey(k => new { k.BusinessEntityId, k.EmailAddressId });
         modelBuilder.Entity<EmailAddress>().Ignore(c => c.KeyType); //cannot have a property with Type as a type, entity just throws exceptions must be ignored on everything
         modelBuilder.Entity<EmailAddress>().Ignore(c => c.IsComplexType);
+
+        //SalesCustomer
+        modelBuilder.Entity<SalesCustomer>(entity =>
+        {
+            entity.ToTable("Customer", schema: "Sales")
+            .HasKey(k => k.CustomerId);
+            entity.Ignore(c => c.IsComplexType);
+            entity.Property(k => k.AccountNumber)
+           .HasComputedColumnSql();
+        });
+        
+        //modelBuilder.Entity<SalesCustomer>().ToTable("Customer", schema: "Sales")
+        //    .HasKey(k => k.CustomerId);
+        //modelBuilder.Entity<SalesCustomer>()
+        //   .Property(k => k.AccountNumber)
+        //   .HasComputedColumnSql();
+        //modelBuilder.Entity<SalesCustomer>().Ignore(c => c.IsComplexType);
     }
 }
 
