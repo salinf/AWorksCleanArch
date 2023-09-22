@@ -56,7 +56,15 @@ public class AdventureWorksContext : DbContext
             entity.Property(k => k.AccountNumber)
            .HasComputedColumnSql();
         });
-        
+
+        //testDefault
+        modelBuilder.Entity<testDefault>(entity =>
+        {
+            entity.ToTable("testDefault", schema: "dbo")
+            .HasKey(k => k.Id);
+            entity.Ignore(c => c.IsComplexType);            
+        });
+
         //modelBuilder.Entity<SalesCustomer>().ToTable("Customer", schema: "Sales")
         //    .HasKey(k => k.CustomerId);
         //modelBuilder.Entity<SalesCustomer>()

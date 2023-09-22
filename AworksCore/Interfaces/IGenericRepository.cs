@@ -5,7 +5,7 @@ public interface IGenericRepository<TEntity, TKey> where TEntity : class, IBaseE
     TEntity? CompositeGet(string encodedId);
     string Delete(TKey id);
     TEntity? Get(TKey id);
-    List<TEntity>? GetAll();
+    List<TEntity>? GetAll(IPagedSpecification? specification);
     TEntity? Post(TEntity entity);
     TEntity? Put(TEntity entity);
 }

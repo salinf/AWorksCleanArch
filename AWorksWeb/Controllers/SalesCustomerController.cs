@@ -1,4 +1,5 @@
-﻿using AWorksInfrastructure.Repositories;
+﻿using AWorksDomain.Specifications;
+using AWorksInfrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,9 +23,9 @@ public class SalesCustomerController : Controller
     }
 
     [HttpGet]
-    public List<SalesCustomer>? GetAll()
+    public List<SalesCustomer>? GetAll([FromQuery]PagedSpecification? specification = null)
     {
-        return _repo.GetAll();
+        return _repo.GetAll(specification);
     }
 
     [HttpDelete("{id}")]

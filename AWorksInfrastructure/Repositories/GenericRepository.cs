@@ -28,9 +28,9 @@ public class GenericRepository<TEntity, TKey> : IGenericRepository<TEntity, TKey
         return _dbset.Find(id);
     }
 
-    public List<TEntity>? GetAll()
+    public List<TEntity>? GetAll(IPagedSpecification? specification)
     {        
-        return _dbset.ToList();
+        return specification == null ? _dbset.ToList() : _dbset.Take(specification.RowsPerPage).ToList();
     }
 
     public TEntity? CompositeGet(string encodedId)
