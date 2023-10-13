@@ -7,7 +7,7 @@ namespace AWorksWeb.Controllers;
 
 [ApiController]
 [Route("api/[controller]/[action]/")]
-public class SalesCustomerController : Controller
+public class SalesCustomerController : moreTestController
 {   
     private readonly IGenericRepository<SalesCustomer, int> _repo;
 
@@ -18,7 +18,7 @@ public class SalesCustomerController : Controller
 
     [HttpGet("{id}")]
     public SalesCustomer? Get(int id)
-    {
+    {       
         return _repo.Get(id);
     }
 
@@ -46,5 +46,15 @@ public class SalesCustomerController : Controller
         return _repo.Put(salesCustomer);
     }
 
+    //[ApiExplorerSettings(IgnoreApi = true)]
+    //[Route("/HandleError")]
+    //public IActionResult HandleError() => Problem("detail");
 
+    [HttpGet("Throw")]
+    public IActionResult Throw() =>
+    throw new Exception("Sample exception.");
 }
+
+
+
+

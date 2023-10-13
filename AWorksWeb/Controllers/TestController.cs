@@ -55,4 +55,12 @@ public class TestController : ControllerBase
     {
         return Convert.ToString(JsonStr).EncodeBase64Url();
     }
+
+    [ApiExplorerSettings(IgnoreApi = true)]
+    [Route("/error")]
+    public IActionResult HandleError() => Problem();
+
+    [HttpGet("Throw")]
+    public IActionResult Throw() =>
+    throw new Exception("Sample exception. test");
 }

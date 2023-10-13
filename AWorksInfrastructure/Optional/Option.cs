@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 
 namespace AWorksInfrastructure.Optional;
 
-internal class Option
-{
-}
-
 public struct Option<T> : IEquatable<Option<T>> where T : class
 {
     private T? _content;

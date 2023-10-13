@@ -32,18 +32,7 @@ public class GenericApiController<TEntity, TKey> : ControllerBase where TEntity 
             //else use value type directly below
         }
         return Ok(_dbset.Find(id));
-    }
-
-    [HttpGet("{encodedId?}")]
-    public IActionResult CompositeGet(string encodedId)
-    {
-        //int t2 = 2;
-        //encodedId = t2.ToString().EncodeBase64Url();
-        //TEntity entity = new();
-        //var key = entity.GetKey(encodedId);
-        //return Ok(_dbset.Find(key));
-        return Ok();
-    }
+    }   
 
     [HttpPut]
     public virtual IActionResult Put([FromBody] TEntity entity)
@@ -90,4 +79,8 @@ public class GenericApiController<TEntity, TKey> : ControllerBase where TEntity 
 
         return Ok(_dbset.Find(id));
     }
+
+    [ApiExplorerSettings(IgnoreApi = true)]
+    [Route("/error")]
+    public IActionResult HandleError() => Problem();
 }

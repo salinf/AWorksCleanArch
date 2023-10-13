@@ -1,5 +1,6 @@
 ﻿using AWorksDomain.Interfaces;
 using AWorksInfrastructure.Data;
+using AWorksInfrastructure.Optional;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -30,7 +31,7 @@ public class GenericRepository<TEntity, TKey> : IGenericRepository<TEntity, TKey
 
     public List<TEntity>? GetAll(IPagedSpecification? specification)
     {        
-        return specification == null ? _dbset.ToList() : _dbset.Take(specification.RowsPerPage).ToList();
+        return specification == null ? _dbset.ToList() : _dbset. Take(specification.RowsPerPage).ToList();
     }
 
     public TEntity? CompositeGet(string encodedId)

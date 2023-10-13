@@ -67,4 +67,7 @@ public class PersonController : ControllerBase
         return p.Entity;
     }
 
+    [ApiExplorerSettings(IgnoreApi = true)]
+    [Route("/error")]
+    public IActionResult HandleError() => Problem();
 }
