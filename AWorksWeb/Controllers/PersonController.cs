@@ -2,7 +2,7 @@
 
 namespace AWorksWeb.Controllers;
 
-[Route("api/[controller]/[action]/{id?}")]
+[Route("api/[controller]/[action]")]
 [ApiController]
 public class PersonController : ControllerBase
 {
@@ -12,7 +12,7 @@ public class PersonController : ControllerBase
         _dbcontext = context;
     }
 
-    [HttpGet]
+    [HttpGet("/{id}")]
     public Person Get(int id)
     {
         Person p = _dbcontext.Person.Find(id);

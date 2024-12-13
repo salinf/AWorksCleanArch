@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AWorksInfrastructure.Repositories.GenericRepository&lt;TEntity, TKey&gt;">
+    <Position X="11.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABABgAAAAAAAACAEAAAAAAgAAEAAAAAg=</HashCode>
+      <FileName>Repositories\GenericRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.367" />
+  </Class>
+  <Class Name="AWorksDomain.Entities.Address">
+    <Position X="4.25" Y="2.75" Width="2.25" />
+    <TypeIdentifier />
+    <Lollipop Orientation="Right" Position="0.192" />
+  </Class>
+  <Interface Name="AWorksDomain.Interfaces.IGenericRepository&lt;TEntity, TKey&gt;" Collapsed="true">
+    <Position X="13.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="AWorksDomain.Interfaces.IBaseEntity" Collapsed="true">
+    <Position X="9.5" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -8,12 +8,12 @@ using AWorksDomain.Entities;
 
 namespace AWorksInfrastructure.Data;
 
-public class AdventureWorksContext : DbContext
+public class AdventureWorksContext : DbContext, IAdventureWorksContext
 {
     public AdventureWorksContext(DbContextOptions<AdventureWorksContext> options) : base(options)
     {
     }
-        
+
     public DbSet<Person> Person { get; set; }
     public DbSet<Address> Address { get; set; }
     public DbSet<AddressType> AddressType { get; set; }
@@ -29,7 +29,7 @@ public class AdventureWorksContext : DbContext
         modelBuilder.Entity<Address>().ToTable("Address", schema: "Person")
             .HasKey(k => k.AddressID);
 
-        modelBuilder.Entity<Address>().ToTable("Address", schema: "Person")            
+        modelBuilder.Entity<Address>().ToTable("Address", schema: "Person")
             .Property(b => b.AddressID)
             .ValueGeneratedOnAdd();
         modelBuilder.Entity<Address>().Ignore(c => c.IsComplexType);
@@ -62,7 +62,7 @@ public class AdventureWorksContext : DbContext
         {
             entity.ToTable("testDefault", schema: "dbo")
             .HasKey(k => k.Id);
-            entity.Ignore(c => c.IsComplexType);            
+            entity.Ignore(c => c.IsComplexType);
         });
 
         //modelBuilder.Entity<SalesCustomer>().ToTable("Customer", schema: "Sales")
