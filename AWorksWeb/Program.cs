@@ -3,8 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-string? connectionString = builder.Configuration.GetConnectionString("AWConnection");
-builder.Services.AddDbContext<AdventureWorksContext>(options => options.UseSqlServer(connectionString));
+//string? connectionString = builder.Configuration.GetConnectionString("AWConnection");
+//builder.Services.AddDbContext<AdventureWorksContext>(options => options.UseSqlServer(connectionString));
+string? connectionString = builder.Configuration.GetConnectionString("AW_PConnection");
+builder.Services.AddDbContext<AdventureWorksContext>(options => options.UseNpgsql(connectionString));
 
 builder.Services.AddControllers();
 

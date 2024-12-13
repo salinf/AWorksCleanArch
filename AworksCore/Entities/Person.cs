@@ -1,29 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿//using System.ComponentModel.DataAnnotations.Schema;
 namespace AWorksDomain.Entities;
 
-[Table("Person", Schema = "Person")]
+//[Table("Person", Schema = "Person")]
 public class Person
 {
-    [Key]
+    //[Key]
     public int BusinessEntityID { get; set; }
     public string PersonType { get; set; } = String.Empty;
     public bool NameStyle { get; set; }
     public string Title { get; set; } = String.Empty;
     public string FirstName { get; set; } = String.Empty;
-    public string MiddleName { get; set; } = String.Empty;  
+    public string MiddleName { get; set; } = String.Empty;
     public string LastName { get; set; } = String.Empty;
-    public string Suffix { get; set; } = String.Empty;  
+    public string Suffix { get; set; } = String.Empty;
     public int EmailPromotion { get; set; }
     public string AdditionalContactInfo { get; set; } = String.Empty;
-    public string Demographics { get; set; } = String.Empty;    
+    public string Demographics { get; set; } = String.Empty;
     public Guid rowguid { get; set; }
     public DateTime ModifiedDate { get; set; }
-   
+
 }
